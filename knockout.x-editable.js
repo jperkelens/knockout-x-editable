@@ -24,6 +24,13 @@
 					}
 				});
 			}
+
+                       if (editableOptions.submitFullDate) {
+                                editableOptions.params = function(params) {
+                                        params.value = new Date(params.value).toISOString()
+                                        return params
+                                }
+                       }
 			
 			//wrap calls to knockout.validation
 			if (!editableOptions.validate && value.isValid) {
